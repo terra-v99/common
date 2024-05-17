@@ -1,5 +1,5 @@
 
 package common
 func Demo() string  {
-	return "demo"
+	return "demo hello world"
 }

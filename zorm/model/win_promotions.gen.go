@@ -13,9 +13,11 @@ type WinPromotions struct {
 	ID             int64           `gorm:"column:id;type:int(11);primaryKey" json:"id,string"`
 	Amount         decimal.Decimal `gorm:"column:amount;type:decimal(15,4);not null;comment:总预算" json:"amount"`                                   // 总预算
 	Balance        decimal.Decimal `gorm:"column:balance;type:decimal(15,4);not null;comment:总预算-剩余金额" json:"balance"`                            // 总预算-剩余金额
+	DailyAmount    decimal.Decimal `gorm:"column:daily_amount;type:decimal(15,4);not null;default:0.0000;comment:每日预算" json:"dailyAmount"`        // 每日预算
+	DailyBalance   decimal.Decimal `gorm:"column:daily_balance;type:decimal(15,4);not null;default:0.0000;comment:每日预算-剩余金额" json:"dailyBalance"` // 每日预算-剩余金额
 	DescriptZh     string          `gorm:"column:descript_zh;type:longtext;comment:详细描述-中文" json:"descriptZh"`                                    // 详细描述-中文
 	Img            string          `gorm:"column:img;type:varchar(1024);not null;comment:图片" json:"img"`                                          // 图片
-	Category       string          `gorm:"column:category;type:varchar(16);not null;default:0;comment:类型:1-充值优惠 2-豪礼赠送 3-新活动" json:"category"`    // 类型:1-充值优惠 2-豪礼赠送 3-新活动
+	Category       string          `gorm:"column:category;type:varchar(16);not null;default:0;comment:类型:1-充值优惠 2-每日任务  9-其他" json:"category"`    // 类型:1-充值优惠 2-每日任务  9-其他
 	GameType       int64           `gorm:"column:game_type;type:tinyint(4);not null;comment:活动游戏类型，见字典dic_promotion_game_type" json:"gameType"`   // 活动游戏类型，见字典dic_promotion_game_type
 	Info           string          `gorm:"column:info;type:longtext;comment:补充信息" json:"info"`                                                    // 补充信息
 	Descript       string          `gorm:"column:descript;type:longtext;comment:详情描述" json:"descript"`                                            // 详情描述

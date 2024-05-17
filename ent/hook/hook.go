@@ -6,7 +6,7 @@ import (
 	"context"
 	"fmt"
 
-	"gitlab.skig.tech/zero-core/common/ent"
+	"github.com/terra-v99/common/ent"
 )
 
 // The CommonFunc type is an adapter to allow the use of ordinary

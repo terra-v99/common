@@ -2,8 +2,8 @@ package zorm
 
 import (
 	"fmt"
-	"gitlab.skig.tech/zero-core/common/zorm/dao"
-	"gitlab.skig.tech/zero-core/sharding"
+	"github.com/terra-v99/common/zorm/dao"
+	"github.com/terra-v99/sharding"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"

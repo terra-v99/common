@@ -4,7 +4,7 @@ package winplatlist
 
 import (
 	"entgo.io/ent/dialect/sql"
-	"gitlab.skig.tech/zero-core/common/ent/predicate"
+	"github.com/terra-v99/common/ent/predicate"
 )
 
 // ID filters vertices based on their ID field.

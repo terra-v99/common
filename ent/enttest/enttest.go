@@ -5,12 +5,12 @@ package enttest
 import (
 	"context"
 
-	"gitlab.skig.tech/zero-core/common/ent"
+	"github.com/terra-v99/common/ent"
 	// required by schema hooks.
-	_ "gitlab.skig.tech/zero-core/common/ent/runtime"
+	_ "github.com/terra-v99/common/ent/runtime"
 
 	"entgo.io/ent/dialect/sql/schema"
-	"gitlab.skig.tech/zero-core/common/ent/migrate"
+	"github.com/terra-v99/common/ent/migrate"
 )
 
 type (

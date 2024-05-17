@@ -8,7 +8,7 @@ import (
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
-	"gitlab.skig.tech/zero-core/common/ent/common"
+	"github.com/terra-v99/common/ent/common"
 )
 
 // Common is the model entity for the Common schema.

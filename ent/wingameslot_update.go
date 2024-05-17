@@ -10,8 +10,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"gitlab.skig.tech/zero-core/common/ent/predicate"
-	"gitlab.skig.tech/zero-core/common/ent/wingameslot"
+	"github.com/terra-v99/common/ent/predicate"
+	"github.com/terra-v99/common/ent/wingameslot"
 )
 
 // WinGameSlotUpdate is the builder for updating WinGameSlot entities.

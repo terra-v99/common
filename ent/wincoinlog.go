@@ -8,7 +8,7 @@ import (
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
-	"gitlab.skig.tech/zero-core/common/ent/wincoinlog"
+	"github.com/terra-v99/common/ent/wincoinlog"
 )
 
 // WinCoinLog is the model entity for the WinCoinLog schema.

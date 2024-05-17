@@ -9,7 +9,7 @@ import (
 
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"gitlab.skig.tech/zero-core/common/ent/windict"
+	"github.com/terra-v99/common/ent/windict"
 )
 
 // WinDictCreate is the builder for creating a WinDict entity.

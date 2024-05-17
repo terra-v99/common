@@ -8,8 +8,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"gitlab.skig.tech/zero-core/common/ent/common"
-	"gitlab.skig.tech/zero-core/common/ent/predicate"
+	"github.com/terra-v99/common/ent/common"
+	"github.com/terra-v99/common/ent/predicate"
 )
 
 // CommonDelete is the builder for deleting a Common entity.

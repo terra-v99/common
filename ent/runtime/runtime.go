@@ -3,10 +3,10 @@
 package runtime
 
 import (
-	"gitlab.skig.tech/zero-core/common/ent/schema"
-	"gitlab.skig.tech/zero-core/common/ent/winconfig"
-	"gitlab.skig.tech/zero-core/common/ent/wingameslot"
-	"gitlab.skig.tech/zero-core/common/ent/winplatlist"
+	"github.com/terra-v99/common/ent/schema"
+	"github.com/terra-v99/common/ent/winconfig"
+	"github.com/terra-v99/common/ent/wingameslot"
+	"github.com/terra-v99/common/ent/winplatlist"
 )
 
 // The init function reads all schema descriptors with runtime code

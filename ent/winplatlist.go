@@ -8,7 +8,7 @@ import (
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
-	"gitlab.skig.tech/zero-core/common/ent/winplatlist"
+	"github.com/terra-v99/common/ent/winplatlist"
 )
 
 // WinPlatList is the model entity for the WinPlatList schema.

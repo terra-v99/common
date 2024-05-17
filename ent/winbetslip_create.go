@@ -9,7 +9,7 @@ import (
 
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"gitlab.skig.tech/zero-core/common/ent/winbetslip"
+	"github.com/terra-v99/common/ent/winbetslip"
 )
 
 // WinBetslipCreate is the builder for creating a WinBetslip entity.

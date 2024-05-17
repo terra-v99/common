@@ -6,7 +6,7 @@ package dao
 
 import (
 	"context"
-	"gitlab.skig.tech/zero-core/common/zorm/model"
+	"github.com/terra-v99/common/zorm/model"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"

@@ -1,7 +1,7 @@
 package zorm
 
 import (
-	"gitlab.skig.tech/zero-core/common/zorm/dao"
+	"github.com/terra-v99/common/zorm/dao"
 	"testing"
 )
 

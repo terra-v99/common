@@ -8,7 +8,7 @@ import (
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
-	"gitlab.skig.tech/zero-core/common/ent/winconfig"
+	"github.com/terra-v99/common/ent/winconfig"
 )
 
 // WinConfig is the model entity for the WinConfig schema.

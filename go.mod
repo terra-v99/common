@@ -1,4 +1,4 @@
-module gitlab.skig.tech/zero-core/common
+module github.com/terra-v99/common
 
 go 1.20
 

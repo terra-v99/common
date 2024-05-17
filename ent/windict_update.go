@@ -10,8 +10,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"gitlab.skig.tech/zero-core/common/ent/predicate"
-	"gitlab.skig.tech/zero-core/common/ent/windict"
+	"github.com/terra-v99/common/ent/predicate"
+	"github.com/terra-v99/common/ent/windict"
 )
 
 // WinDictUpdate is the builder for updating WinDict entities.

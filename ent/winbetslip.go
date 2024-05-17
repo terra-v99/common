@@ -8,7 +8,7 @@ import (
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
-	"gitlab.skig.tech/zero-core/common/ent/winbetslip"
+	"github.com/terra-v99/common/ent/winbetslip"
 )
 
 // WinBetslip is the model entity for the WinBetslip schema.

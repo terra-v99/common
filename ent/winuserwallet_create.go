@@ -9,7 +9,7 @@ import (
 
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"gitlab.skig.tech/zero-core/common/ent/winuserwallet"
+	"github.com/terra-v99/common/ent/winuserwallet"
 )
 
 // WinUserWalletCreate is the builder for creating a WinUserWallet entity.

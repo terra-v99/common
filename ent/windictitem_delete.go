@@ -8,8 +8,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"gitlab.skig.tech/zero-core/common/ent/predicate"
-	"gitlab.skig.tech/zero-core/common/ent/windictitem"
+	"github.com/terra-v99/common/ent/predicate"
+	"github.com/terra-v99/common/ent/windictitem"
 )
 
 // WinDictItemDelete is the builder for deleting a WinDictItem entity.

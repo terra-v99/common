@@ -10,8 +10,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"gitlab.skig.tech/zero-core/common/ent/predicate"
-	"gitlab.skig.tech/zero-core/common/ent/wingamelist"
+	"github.com/terra-v99/common/ent/predicate"
+	"github.com/terra-v99/common/ent/wingamelist"
 )
 
 // WinGameListUpdate is the builder for updating WinGameList entities.

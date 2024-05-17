@@ -10,8 +10,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"gitlab.skig.tech/zero-core/common/ent/common"
-	"gitlab.skig.tech/zero-core/common/ent/predicate"
+	"github.com/terra-v99/common/ent/common"
+	"github.com/terra-v99/common/ent/predicate"
 )
 
 // CommonQuery is the builder for querying Common entities.

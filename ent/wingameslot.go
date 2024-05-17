@@ -8,7 +8,7 @@ import (
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
-	"gitlab.skig.tech/zero-core/common/ent/wingameslot"
+	"github.com/terra-v99/common/ent/wingameslot"
 )
 
 // WinGameSlot is the model entity for the WinGameSlot schema.

@@ -1,7 +1,7 @@
 package xerr
 
 import (
-	"gitlab.skig.tech/zero-core/common/xerr/types/err"
+	"github.com/terra-v99/common/xerr/types/err"
 )
 
 /**

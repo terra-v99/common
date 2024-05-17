@@ -2,4 +2,4 @@
 
 package ent
 
-// The schema-stitching logic is generated in gitlab.skig.tech/zero-core/common/ent/runtime/runtime.go
+// The schema-stitching logic is generated in github.com/terra-v99/common/ent/runtime/runtime.go

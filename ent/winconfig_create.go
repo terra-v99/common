@@ -9,7 +9,7 @@ import (
 
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"gitlab.skig.tech/zero-core/common/ent/winconfig"
+	"github.com/terra-v99/common/ent/winconfig"
 )
 
 // WinConfigCreate is the builder for creating a WinConfig entity.

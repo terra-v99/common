@@ -5,9 +5,9 @@ import (
 	"crypto/sha256"
 	"encoding/json"
 	"fmt"
+	"github.com/terra-v99/common/ent"
 	"github.com/zeromicro/go-zero/core/logx"
 	"github.com/zeromicro/go-zero/core/stores/redis"
-	"gitlab.skig.tech/zero-core/common/ent"
 	"strings"
 	"sync"
 )

@@ -9,7 +9,7 @@ import (
 
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"gitlab.skig.tech/zero-core/common/ent/wingameslot"
+	"github.com/terra-v99/common/ent/wingameslot"
 )
 
 // WinGameSlotCreate is the builder for creating a WinGameSlot entity.

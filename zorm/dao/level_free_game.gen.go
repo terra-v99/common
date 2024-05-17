@@ -5,18 +5,18 @@
 package dao
 
 import (
-"context"
+	"context"
 
-"gorm.io/gorm"
-"gorm.io/gorm/clause"
-"gorm.io/gorm/schema"
+	"gorm.io/gorm"
+	"gorm.io/gorm/clause"
+	"gorm.io/gorm/schema"
 
-"gorm.io/gen"
-"gorm.io/gen/field"
+	"gorm.io/gen"
+	"gorm.io/gen/field"
 
-"gorm.io/plugin/dbresolver"
+	"gorm.io/plugin/dbresolver"
 
-"gitlab.skig.tech/zero-core/common/zorm/model"
+	"github.com/terra-v99/common/zorm/model"
 )
 
 func newLevelFreeGame(db *gorm.DB, opts ...gen.DOOption) levelFreeGame {

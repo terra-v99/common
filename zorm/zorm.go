@@ -2,7 +2,7 @@ package zorm
 
 import (
 	"fmt"
-	"gitlab.skig.tech/zero-core/sharding"
+	"github.com/terra-v99/sharding"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/plugin/dbresolver"

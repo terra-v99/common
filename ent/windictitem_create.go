@@ -9,7 +9,7 @@ import (
 
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"gitlab.skig.tech/zero-core/common/ent/windictitem"
+	"github.com/terra-v99/common/ent/windictitem"
 )
 
 // WinDictItemCreate is the builder for creating a WinDictItem entity.

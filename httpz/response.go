@@ -2,8 +2,8 @@ package httpz
 
 import (
 	"context"
+	"github.com/terra-v99/common/header"
 	"github.com/zeromicro/go-zero/rest/httpx"
-	"gitlab.skig.tech/zero-core/common/header"
 	"net/http"
 	"strings"
 

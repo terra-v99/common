@@ -8,7 +8,7 @@ import (
 
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"gitlab.skig.tech/zero-core/common/ent/common"
+	"github.com/terra-v99/common/ent/common"
 )
 
 // CommonCreate is the builder for creating a Common entity.

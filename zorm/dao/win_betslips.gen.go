@@ -16,7 +16,7 @@ import (
 
 	"gorm.io/plugin/dbresolver"
 
-	"gitlab.skig.tech/zero-core/common/zorm/model"
+	"github.com/terra-v99/common/zorm/model"
 )
 
 func newWinBetslip(db *gorm.DB, opts ...gen.DOOption) winBetslip {

@@ -9,7 +9,7 @@ import (
 
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"gitlab.skig.tech/zero-core/common/ent/winuser"
+	"github.com/terra-v99/common/ent/winuser"
 )
 
 // WinUserCreate is the builder for creating a WinUser entity.

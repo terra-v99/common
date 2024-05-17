@@ -7,7 +7,7 @@ import (
 	"entgo.io/ent/dialect/entsql"
 	"entgo.io/ent/schema"
 	"entgo.io/ent/schema/field"
-	"gitlab.skig.tech/zero-core/common/utils"
+	"github.com/terra-v99/common/utils"
 )
 
 type WinConfig struct {

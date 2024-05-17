@@ -1,7 +1,7 @@
 package xerr
 
 import (
-	gerr "gitlab.skig.tech/zero-core/common/xerr/types/err"
+	gerr "github.com/terra-v99/common/xerr/types/err"
 	"google.golang.org/grpc/status"
 )
 

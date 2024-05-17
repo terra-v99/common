@@ -4,11 +4,11 @@ import (
 	"encoding/xml"
 	"errors"
 	"github.com/go-playground/validator/v10"
+	"github.com/terra-v99/common/encoding"
+	"github.com/terra-v99/common/header"
 	"github.com/zeromicro/go-zero/core/errorx"
 	"github.com/zeromicro/go-zero/core/mapping"
 	"github.com/zeromicro/go-zero/rest/pathvar"
-	"gitlab.skig.tech/zero-core/common/encoding"
-	"gitlab.skig.tech/zero-core/common/header"
 
 	"io"
 	"net/http"

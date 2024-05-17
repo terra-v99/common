@@ -8,7 +8,7 @@ import (
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
-	"gitlab.skig.tech/zero-core/common/ent/winuser"
+	"github.com/terra-v99/common/ent/winuser"
 )
 
 // WinUser is the model entity for the WinUser schema.

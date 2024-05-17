@@ -8,7 +8,7 @@ import (
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"
-	"gitlab.skig.tech/zero-core/common/ent/wingamelist"
+	"github.com/terra-v99/common/ent/wingamelist"
 )
 
 // WinGameList is the model entity for the WinGameList schema.

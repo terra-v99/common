@@ -63,7 +63,7 @@ var (
 	WinCoinLogCopy1                   *winCoinLogCopy1
 	WinCoinRate                       *winCoinRate
 	WinCoinRebate                     *winCoinRebate
-	WinCoinRewards                     *winCoinRewards
+	WinCoinRewards                    *winCoinRewards
 	WinCoinWithdrawalRecord           *winCoinWithdrawalRecord
 	WinCoinWithdrawalRecordDelUser    *winCoinWithdrawalRecordDelUser
 	WinConfig                         *winConfig
@@ -134,12 +134,13 @@ var (
 	LevelFreeGame                     *levelFreeGame
 	WinAuthRuleMap                    *winAuthRuleMap
 	WinFreeGameRecord                 *winFreeGameRecord
-	WinCoinUserGameTransfer *winCoinUserGameTransfer
-	WinFreeGameList *winFreeGameList
-	AgentConfig *agentConfig
-	AgentReportConfigHistory *agentReportConfigHistory
-	PromotionsConfig *promotionsConfig
-    AppConfig *appConfig
+	WinCoinUserGameTransfer           *winCoinUserGameTransfer
+	WinFreeGameList                   *winFreeGameList
+	AgentConfig                       *agentConfig
+	AgentReportConfigHistory          *agentReportConfigHistory
+	PromotionsConfig                  *promotionsConfig
+	AppConfig                         *appConfig
+	PromotionDailyTask                *promotionDailyTask
 )
 
 func SetDefault(db *gorm.DB, opts ...gen.DOOption) {
@@ -266,7 +267,7 @@ func SetDefault(db *gorm.DB, opts ...gen.DOOption) {
 	AgentReportConfigHistory = &Q.AgentReportConfigHistory
 	PromotionsConfig = &Q.PromotionsConfig
 	AppConfig = &Q.AppConfig
-
+	PromotionDailyTask = &Q.PromotionDailyTask
 }
 
 func Use(db *gorm.DB, opts ...gen.DOOption) *Query {
@@ -317,7 +318,7 @@ func Use(db *gorm.DB, opts ...gen.DOOption) *Query {
 		WinCoinLogCopy1:                   newWinCoinLogCopy1(db, opts...),
 		WinCoinRate:                       newWinCoinRate(db, opts...),
 		WinCoinRebate:                     newWinCoinRebate(db, opts...),
-		WinCoinRewards:                     newWinCoinRewards(db, opts...),
+		WinCoinRewards:                    newWinCoinRewards(db, opts...),
 		WinCoinWithdrawalRecord:           newWinCoinWithdrawalRecord(db, opts...),
 		WinCoinWithdrawalRecordDelUser:    newWinCoinWithdrawalRecordDelUser(db, opts...),
 		WinConfig:                         newWinConfig(db, opts...),
@@ -388,12 +389,13 @@ func Use(db *gorm.DB, opts ...gen.DOOption) *Query {
 		LevelFreeGame:                     newLevelFreeGame(db, opts...),
 		WinAuthRuleMap:                    newWinAuthRuleMap(db, opts...),
 		WinFreeGameRecord:                 newWinFreeGameRecord(db, opts...),
-		WinCoinUserGameTransfer: newWinCoinUserGameTransfer(db, opts...),
-		WinFreeGameList: newWinFreeGameList(db, opts...),
-		AgentConfig: newAgentConfig(db, opts...),
-		AgentReportConfigHistory: newAgentReportConfigHistory(db, opts...),
-		PromotionsConfig: newPromotionsConfig(db, opts...),
-		AppConfig: newAppConfig(db, opts...),
+		WinCoinUserGameTransfer:           newWinCoinUserGameTransfer(db, opts...),
+		WinFreeGameList:                   newWinFreeGameList(db, opts...),
+		AgentConfig:                       newAgentConfig(db, opts...),
+		AgentReportConfigHistory:          newAgentReportConfigHistory(db, opts...),
+		PromotionsConfig:                  newPromotionsConfig(db, opts...),
+		AppConfig:                         newAppConfig(db, opts...),
+		PromotionDailyTask:                newPromotionDailyTask(db, opts...),
 	}
 }
 
@@ -516,13 +518,13 @@ type Query struct {
 	LevelFreeGame                     levelFreeGame
 	WinAuthRuleMap                    winAuthRuleMap
 	WinFreeGameRecord                 winFreeGameRecord
-	WinCoinUserGameTransfer winCoinUserGameTransfer
-	WinFreeGameList winFreeGameList
-	AgentConfig agentConfig
-	AgentReportConfigHistory agentReportConfigHistory
-	PromotionsConfig promotionsConfig
-	AppConfig appConfig
-
+	WinCoinUserGameTransfer           winCoinUserGameTransfer
+	WinFreeGameList                   winFreeGameList
+	AgentConfig                       agentConfig
+	AgentReportConfigHistory          agentReportConfigHistory
+	PromotionsConfig                  promotionsConfig
+	AppConfig                         appConfig
+	PromotionDailyTask                promotionDailyTask
 }
 
 func (q *Query) Available() bool { return q.db != nil }
@@ -575,7 +577,7 @@ func (q *Query) clone(db *gorm.DB) *Query {
 		WinCoinLogCopy1:                   q.WinCoinLogCopy1.clone(db),
 		WinCoinRate:                       q.WinCoinRate.clone(db),
 		WinCoinRebate:                     q.WinCoinRebate.clone(db),
-		WinCoinRewards:                     q.WinCoinRewards.clone(db),
+		WinCoinRewards:                    q.WinCoinRewards.clone(db),
 		WinCoinWithdrawalRecord:           q.WinCoinWithdrawalRecord.clone(db),
 		WinCoinWithdrawalRecordDelUser:    q.WinCoinWithdrawalRecordDelUser.clone(db),
 		WinConfig:                         q.WinConfig.clone(db),
@@ -646,12 +648,13 @@ func (q *Query) clone(db *gorm.DB) *Query {
 		LevelFreeGame:                     q.LevelFreeGame.clone(db),
 		WinAuthRuleMap:                    q.WinAuthRuleMap.clone(db),
 		WinFreeGameRecord:                 q.WinFreeGameRecord.clone(db),
-		WinCoinUserGameTransfer: q.WinCoinUserGameTransfer.clone(db),
-		WinFreeGameList: q.WinFreeGameList.clone(db),
-		AgentConfig: q.AgentConfig.clone(db),
-		AgentReportConfigHistory: q.AgentReportConfigHistory.clone(db),
-		PromotionsConfig: q.PromotionsConfig.clone(db),
-		AppConfig: q.AppConfig.clone(db),
+		WinCoinUserGameTransfer:           q.WinCoinUserGameTransfer.clone(db),
+		WinFreeGameList:                   q.WinFreeGameList.clone(db),
+		AgentConfig:                       q.AgentConfig.clone(db),
+		AgentReportConfigHistory:          q.AgentReportConfigHistory.clone(db),
+		PromotionsConfig:                  q.PromotionsConfig.clone(db),
+		AppConfig:                         q.AppConfig.clone(db),
+		PromotionDailyTask:                q.PromotionDailyTask.clone(db),
 	}
 }
 
@@ -711,7 +714,7 @@ func (q *Query) ReplaceDB(db *gorm.DB) *Query {
 		WinCoinLogCopy1:                   q.WinCoinLogCopy1.replaceDB(db),
 		WinCoinRate:                       q.WinCoinRate.replaceDB(db),
 		WinCoinRebate:                     q.WinCoinRebate.replaceDB(db),
-		WinCoinRewards:                     q.WinCoinRewards.replaceDB(db),
+		WinCoinRewards:                    q.WinCoinRewards.replaceDB(db),
 		WinCoinWithdrawalRecord:           q.WinCoinWithdrawalRecord.replaceDB(db),
 		WinCoinWithdrawalRecordDelUser:    q.WinCoinWithdrawalRecordDelUser.replaceDB(db),
 		WinConfig:                         q.WinConfig.replaceDB(db),
@@ -782,13 +785,13 @@ func (q *Query) ReplaceDB(db *gorm.DB) *Query {
 		LevelFreeGame:                     q.LevelFreeGame.replaceDB(db),
 		WinAuthRuleMap:                    q.WinAuthRuleMap.replaceDB(db),
 		WinFreeGameRecord:                 q.WinFreeGameRecord.replaceDB(db),
-		WinCoinUserGameTransfer: q.WinCoinUserGameTransfer.replaceDB(db),
-		WinFreeGameList: q.WinFreeGameList.replaceDB(db),
-		AgentConfig: q.AgentConfig.replaceDB(db),
-		AgentReportConfigHistory: q.AgentReportConfigHistory.replaceDB(db),
-		PromotionsConfig: q.PromotionsConfig.replaceDB(db),
-		AppConfig: q.AppConfig.replaceDB(db),
-
+		WinCoinUserGameTransfer:           q.WinCoinUserGameTransfer.replaceDB(db),
+		WinFreeGameList:                   q.WinFreeGameList.replaceDB(db),
+		AgentConfig:                       q.AgentConfig.replaceDB(db),
+		AgentReportConfigHistory:          q.AgentReportConfigHistory.replaceDB(db),
+		PromotionsConfig:                  q.PromotionsConfig.replaceDB(db),
+		AppConfig:                         q.AppConfig.replaceDB(db),
+		PromotionDailyTask:                q.PromotionDailyTask.replaceDB(db),
 	}
 }
 
@@ -838,7 +841,7 @@ type queryCtx struct {
 	WinCoinLogCopy1                   IWinCoinLogCopy1Do
 	WinCoinRate                       IWinCoinRateDo
 	WinCoinRebate                     IWinCoinRebateDo
-	WinCoinRewards                     IWinCoinRewardsDo
+	WinCoinRewards                    IWinCoinRewardsDo
 	WinCoinWithdrawalRecord           IWinCoinWithdrawalRecordDo
 	WinCoinWithdrawalRecordDelUser    IWinCoinWithdrawalRecordDelUserDo
 	WinConfig                         IWinConfigDo
@@ -909,12 +912,13 @@ type queryCtx struct {
 	LevelFreeGame                     ILevelFreeGameDo
 	WinAuthRuleMap                    IWinAuthRuleMapDo
 	WinFreeGameRecord                 IWinFreeGameRecordDo
-	WinCoinUserGameTransfer IWinCoinUserGameTransferDo
-	WinFreeGameList IWinFreeGameListDo
-	AgentConfig IAgentConfigDo
-	AgentReportConfigHistory IAgentReportConfigHistoryDo
-	PromotionsConfig IPromotionsConfigDo
-	AppConfig IAppConfigDo
+	WinCoinUserGameTransfer           IWinCoinUserGameTransferDo
+	WinFreeGameList                   IWinFreeGameListDo
+	AgentConfig                       IAgentConfigDo
+	AgentReportConfigHistory          IAgentReportConfigHistoryDo
+	PromotionsConfig                  IPromotionsConfigDo
+	AppConfig                         IAppConfigDo
+	PromotionDailyTask                IPromotionDailyTaskDo
 }
 
 func (q *Query) WithContext(ctx context.Context) *queryCtx {
@@ -964,7 +968,7 @@ func (q *Query) WithContext(ctx context.Context) *queryCtx {
 		WinCoinLogCopy1:                   q.WinCoinLogCopy1.WithContext(ctx),
 		WinCoinRate:                       q.WinCoinRate.WithContext(ctx),
 		WinCoinRebate:                     q.WinCoinRebate.WithContext(ctx),
-		WinCoinRewards:                     q.WinCoinRewards.WithContext(ctx),
+		WinCoinRewards:                    q.WinCoinRewards.WithContext(ctx),
 		WinCoinWithdrawalRecord:           q.WinCoinWithdrawalRecord.WithContext(ctx),
 		WinCoinWithdrawalRecordDelUser:    q.WinCoinWithdrawalRecordDelUser.WithContext(ctx),
 		WinConfig:                         q.WinConfig.WithContext(ctx),
@@ -1035,11 +1039,12 @@ func (q *Query) WithContext(ctx context.Context) *queryCtx {
 		LevelFreeGame:                     q.LevelFreeGame.WithContext(ctx),
 		WinAuthRuleMap:                    q.WinAuthRuleMap.WithContext(ctx),
 		WinFreeGameRecord:                 q.WinFreeGameRecord.WithContext(ctx),
-		WinCoinUserGameTransfer: q.WinCoinUserGameTransfer.WithContext(ctx),
-		WinFreeGameList: q.WinFreeGameList.WithContext(ctx),
-		AgentReportConfigHistory: q.AgentReportConfigHistory.WithContext(ctx),
-		PromotionsConfig: q.PromotionsConfig.WithContext(ctx),
-		AppConfig: q.AppConfig.WithContext(ctx),
+		WinCoinUserGameTransfer:           q.WinCoinUserGameTransfer.WithContext(ctx),
+		WinFreeGameList:                   q.WinFreeGameList.WithContext(ctx),
+		AgentReportConfigHistory:          q.AgentReportConfigHistory.WithContext(ctx),
+		PromotionsConfig:                  q.PromotionsConfig.WithContext(ctx),
+		AppConfig:                         q.AppConfig.WithContext(ctx),
+		PromotionDailyTask:                q.PromotionDailyTask.WithContext(ctx),
 	}
 }
 

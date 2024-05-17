@@ -6,6 +6,7 @@ package dao
 
 import (
 	"context"
+	"gitlab.skig.tech/zero-core/common/zorm/model"
 
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
@@ -15,8 +16,6 @@ import (
 	"gorm.io/gen/field"
 
 	"gorm.io/plugin/dbresolver"
-
-	"gitlab.skig.tech/zero-core/common/zorm/model"
 )
 
 func newWinPromotions(db *gorm.DB, opts ...gen.DOOption) winPromotions {
@@ -28,8 +27,10 @@ func newWinPromotions(db *gorm.DB, opts ...gen.DOOption) winPromotions {
 	tableName := _winPromotions.winPromotionsDo.TableName()
 	_winPromotions.ALL = field.NewAsterisk(tableName)
 	_winPromotions.ID = field.NewInt64(tableName, "id")
-	_winPromotions.Code = field.NewString(tableName, "code")
-	_winPromotions.CodeZh = field.NewString(tableName, "code_zh")
+	_winPromotions.Amount = field.NewField(tableName, "amount")
+	_winPromotions.Balance = field.NewField(tableName, "balance")
+	_winPromotions.DailyAmount = field.NewField(tableName, "daily_amount")
+	_winPromotions.DailyBalance = field.NewField(tableName, "daily_balance")
 	_winPromotions.DescriptZh = field.NewString(tableName, "descript_zh")
 	_winPromotions.Img = field.NewString(tableName, "img")
 	_winPromotions.Category = field.NewString(tableName, "category")
@@ -57,11 +58,13 @@ type winPromotions struct {
 
 	ALL            field.Asterisk
 	ID             field.Int64
-	Code           field.String // 活动标识:首充优惠-First Deposit Bonus 续充优惠-Second Deposit Bonus 首单包赔-Risk-Free Bet 快乐周末-Happy Weekend Bonus
-	CodeZh         field.String // 名称中文
+	Amount         field.Field  // 总预算
+	Balance        field.Field  // 总预算-剩余金额
+	DailyAmount    field.Field  // 每日预算
+	DailyBalance   field.Field  // 每日预算-剩余金额
 	DescriptZh     field.String // 详细描述-中文
 	Img            field.String // 图片
-	Category       field.String // 类型:1-充值优惠 2-豪礼赠送 3-新活动
+	Category       field.String // 类型:1-充值优惠 2-每日任务  9-其他
 	GameType       field.Int64  // 活动游戏类型，见字典dic_promotion_game_type
 	Info           field.String // 补充信息
 	Descript       field.String // 详情描述
@@ -92,8 +95,10 @@ func (w winPromotions) As(alias string) *winPromotions {
 func (w *winPromotions) updateTableName(table string) *winPromotions {
 	w.ALL = field.NewAsterisk(table)
 	w.ID = field.NewInt64(table, "id")
-	w.Code = field.NewString(table, "code")
-	w.CodeZh = field.NewString(table, "code_zh")
+	w.Amount = field.NewField(table, "amount")
+	w.Balance = field.NewField(table, "balance")
+	w.DailyAmount = field.NewField(table, "daily_amount")
+	w.DailyBalance = field.NewField(table, "daily_balance")
 	w.DescriptZh = field.NewString(table, "descript_zh")
 	w.Img = field.NewString(table, "img")
 	w.Category = field.NewString(table, "category")
@@ -126,10 +131,12 @@ func (w *winPromotions) GetFieldByName(fieldName string) (field.OrderExpr, bool)
 }
 
 func (w *winPromotions) fillFieldMap() {
-	w.fieldMap = make(map[string]field.Expr, 19)
+	w.fieldMap = make(map[string]field.Expr, 21)
 	w.fieldMap["id"] = w.ID
-	w.fieldMap["code"] = w.Code
-	w.fieldMap["code_zh"] = w.CodeZh
+	w.fieldMap["amount"] = w.Amount
+	w.fieldMap["balance"] = w.Balance
+	w.fieldMap["daily_amount"] = w.DailyAmount
+	w.fieldMap["daily_balance"] = w.DailyBalance
 	w.fieldMap["descript_zh"] = w.DescriptZh
 	w.fieldMap["img"] = w.Img
 	w.fieldMap["category"] = w.Category

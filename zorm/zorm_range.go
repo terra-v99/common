@@ -1,7 +1,7 @@
 package zorm
 
 import (
-	"gitlab.skig.tech/zero-core/sharding"
+	"github.com/terra-v99/sharding"
 	"gorm.io/gorm"
 	"gorm.io/plugin/dbresolver"
 	"gorm.io/plugin/prometheus"

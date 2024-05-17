@@ -10,9 +10,9 @@ require (
 	github.com/go-playground/universal-translator v0.18.1
 	github.com/go-playground/validator/v10 v10.16.0
 	github.com/shopspring/decimal v1.3.1
+	github.com/terra-v99/sharding v1.0.1
 	github.com/zeromicro/go-zero v1.5.4
 	github.com/zeromicro/x v0.0.0-20230424055333-01c7fb9548d4
-	gitlab.skig.tech/zero-core/sharding v0.0.11
 	golang.org/x/text v0.12.0
 	google.golang.org/grpc v1.57.0
 	google.golang.org/protobuf v1.31.0
@@ -92,5 +92,3 @@ require (
 )
 
 replace github.com/zeromicro/go-zero v1.5.4 => github.com/suyuan32/simple-admin-tools v1.5.16
-
-replace gitlab.skig.tech/zero-core/sharding v0.0.11 => github.com/zhangbao138208/sharding v1.0.1

@@ -31,6 +31,7 @@ func newPromotionDailyTask(db *gorm.DB, opts ...gen.DOOption) promotionDailyTask
 	_promotionDailyTask.UserID = field.NewInt64(tableName, "user_id")
 	_promotionDailyTask.TaskTitle = field.NewString(tableName, "task_title")
 	_promotionDailyTask.BetAmount = field.NewInt64(tableName, "bet_amount")
+	_promotionDailyTask.BetAmountFinish = field.NewInt64(tableName, "bet_amount_finish")
 	_promotionDailyTask.Bonus = field.NewInt64(tableName, "bonus")
 	_promotionDailyTask.CodeMultiple = field.NewInt64(tableName, "code_multiple")
 	_promotionDailyTask.RotatingNumber = field.NewInt64(tableName, "rotating_number")
@@ -49,21 +50,22 @@ func newPromotionDailyTask(db *gorm.DB, opts ...gen.DOOption) promotionDailyTask
 type promotionDailyTask struct {
 	promotionDailyTaskDo
 
-	ALL            field.Asterisk
-	ID             field.Int64  // 主键ID
-	PromotionsID   field.Int64  // 优惠活动ID
-	UserID         field.Int64  // 用户ID
-	TaskTitle      field.String // 任务标题: task1, task2
-	BetAmount      field.Int64  // 有效投注金额
-	Bonus          field.Int64  // 彩金金额
-	CodeMultiple   field.Int64  // 打码倍数
-	RotatingNumber field.Int64  // 旋转数量
-	PerBetAmount   field.Field  // 单次投注金额
-	ValidDays      field.Int64  // 有效期天数
-	SortID         field.Int64  // 任务序号ID: 1-6
-	Status         field.Int64  // 任务状态: 0-未完成, 1-已完成
-	TaskDate       field.Int64  // 任务日期
-	UpdateAt       field.Int64  // 修改时间
+	ALL             field.Asterisk
+	ID              field.Int64  // 主键ID
+	PromotionsID    field.Int64  // 优惠活动ID
+	UserID          field.Int64  // 用户ID
+	TaskTitle       field.String // 任务标题: task1, task2
+	BetAmount       field.Int64  // 有效投注金额
+	BetAmountFinish field.Int64  // 已投注金额
+	Bonus           field.Int64  // 彩金金额
+	CodeMultiple    field.Int64  // 打码倍数
+	RotatingNumber  field.Int64  // 旋转数量
+	PerBetAmount    field.Field  // 单次投注金额
+	ValidDays       field.Int64  // 有效期天数
+	SortID          field.Int64  // 任务序号ID: 1-6
+	Status          field.Int64  // 任务状态: 0-未完成, 1-已完成
+	TaskDate        field.Int64  // 任务日期
+	UpdateAt        field.Int64  // 修改时间
 
 	fieldMap map[string]field.Expr
 }
@@ -85,6 +87,7 @@ func (p *promotionDailyTask) updateTableName(table string) *promotionDailyTask {
 	p.UserID = field.NewInt64(table, "user_id")
 	p.TaskTitle = field.NewString(table, "task_title")
 	p.BetAmount = field.NewInt64(table, "bet_amount")
+	p.BetAmountFinish = field.NewInt64(table, "bet_amount_finish")
 	p.Bonus = field.NewInt64(table, "bonus")
 	p.CodeMultiple = field.NewInt64(table, "code_multiple")
 	p.RotatingNumber = field.NewInt64(table, "rotating_number")
@@ -110,12 +113,13 @@ func (p *promotionDailyTask) GetFieldByName(fieldName string) (field.OrderExpr, 
 }
 
 func (p *promotionDailyTask) fillFieldMap() {
-	p.fieldMap = make(map[string]field.Expr, 14)
+	p.fieldMap = make(map[string]field.Expr, 15)
 	p.fieldMap["id"] = p.ID
 	p.fieldMap["promotions_id"] = p.PromotionsID
 	p.fieldMap["user_id"] = p.UserID
 	p.fieldMap["task_title"] = p.TaskTitle
 	p.fieldMap["bet_amount"] = p.BetAmount
+	p.fieldMap["bet_amount_finish"] = p.BetAmountFinish
 	p.fieldMap["bonus"] = p.Bonus
 	p.fieldMap["code_multiple"] = p.CodeMultiple
 	p.fieldMap["rotating_number"] = p.RotatingNumber
